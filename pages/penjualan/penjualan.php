@@ -247,20 +247,39 @@ $telpon = $_SESSION['telpon'];
                           <td data-column="Jumlah & Satuan" class="table-row__td">
                             <div class="table-row__info">
                               <?php 
-                              $nomor_trans = $u['no_transaksi'];
+                              $id_trans = $u['no_transaksi'];
                               $query3 = mysqli_query($cons, "SELECT * FROM tbl_transaksi WHERE no_transaksi='$id_trans'");
                               if ($query3) {
                                 $hargaTotal = 0;
                                 while ($total = mysqli_fetch_array($query3)) {
-                                  $hargaTotal += $harga['total_bayar'];
+                                  $hargaTotal += $total['total_bayar'];
                                 }
                                 if ($hargaTotal > 0) {
-                                  echo $hargaTotal;
-                                }
-                              }
+                                  
                               ?>
-                              <p class='table-row__policy status status--green'><?=$t[''] ?></p>
-                              <?php   ?>
+                              <p class='table-row__policy status--red'>Rp <?= number_format($hargaTotal, 0, ',', '.')?></p>
+                              <?php  }} ?>
+                            </div>
+                          </td>
+                          <td data-column="Jumlah & Satuan" class="table-row__td">
+                            <div class="table-row__info">
+                              <table class="table_barang_row">
+                                <tbody>
+                                  <?php 
+                                  $query4 = mysqli_query($cons, "SELECT * FROM tbl_transaksi INNER JOIN tbl_barang ON tbl_barang.id_barang=tbl_transaksi.id_barang WHERE no_transaksi='$id_trans'");
+                                  while ($namaBarang = mysqli_fetch_array($query4)) {?>
+                                  <tr>
+                                    <td class="nama_barang_cell">
+                                      <p class="table-row__policy "><?=$namaBarang['nama_barang']?> </p>
+                                    </td>
+                                    <td class="kuantitas_barang_cell">
+                                      <p class="table-row__policy "><?=$namaBarang['kuantitas']?> </p>
+                                    </td>
+                                  </tr>
+                                  <?php } ?>
+                                </tbody>
+                              </table>
+                              
                             </div>
                           </td>
                           

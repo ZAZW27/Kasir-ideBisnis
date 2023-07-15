@@ -496,3 +496,22 @@ textarea {
   font-weight: 800;
   transform: scale(1.05);
 }
+
+.table_barang_row{
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 120px;
+}
+
+.table_barang_row tbody td{
+  padding: 0 10px;
+  text-align: start;
+  border-bottom: 1px rgb(105, 104, 104) solid;
+  
+}
+
+.table_barang_row tbody .nama_barang_cell{
+  /* border-bottom: 1px black solid; */
+  width: 70%;
+}
+
