@@ -64,19 +64,28 @@ function sendButton(){
     var nama_barang = document.getElementById(`${id_barang}-nama`).textContent
     var quantitas_barang = document.getElementById(`quantitas-barang`).value
 
+    // membuat fungsi jika barang sudah ada dalam cart maka tidak akan duplikasi   =====================
+    var getBody = document.getElementById('table-body');
+    var cartItems = getBody.querySelectorAll('.nama__barang');
+
+    for (var i = 0; i < cartItems.length; i++) {
+        if (cartItems[i].innerText === nama_barang) {
+            alert("Item already added to the cart");
+            return;
+        }
+    }
+
     if (!(parseInt(quantitas_barang) > 0) || isNaN(quantitas_barang)) {
         quantitas_barang = 1;
     }
 
-    
-
     console.log(harga_barang, nama_barang, quantitas_barang)
     var tableContent = `
     <tr class="table-row cart-row">
-        <input type="text" value="${id_barang}" name="id_barang[]" hidden>
+        <input type="text" value="${id_barang}" name="id_barang[]" id="id-barang" hidden>
         <td class="table-row__td">
             <div class="table-row__info">
-                <p class="table-row__name" name="nama_barang[]">${nama_barang}</p>
+                <p class="table-row__name nama__barang" name="nama_barang[]">${nama_barang}</p>
             </div>
             </td>
             <td data-column="Harga Satuan" class="table-row__td">

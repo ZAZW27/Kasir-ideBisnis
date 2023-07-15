@@ -291,7 +291,7 @@ $telpon = $_SESSION['telpon'];
                         </thead>
                         
                         <tbody class="table__tbody cart-items" id="table-body">
-                          <!-- body -->
+                          <!-- IDI TABLE YANG AKAN DI INPUT DARI JAVA SCRIPT ================================ -->
                         </tbody>
                         <div class="total-harga">
                           <span class="total cart-total-price">Rp 0</span>
