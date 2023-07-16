@@ -41,18 +41,6 @@ $telpon = $_SESSION['telpon'];
   </head>
   <body>
     <div class="container-scroller">
-      <div class="row p-0 m-0 proBanner" id="proBanner">
-        <div class="col-md-12 p-0 m-0">
-          <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
-            <div class="d-flex align-items-center justify-content-between">
-              <a href="https://www.bootstrapdash.com/product/connect-plus-bootstrap-admin-template/"><i class="mdi mdi-home me-3 text-white"></i></a>
-              <button id="bannerClose" class="btn border-0 p-0">
-                <i class="mdi mdi-close text-white me-0"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
       <!-- partial:partials/_navbar.html -->
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -139,7 +127,7 @@ $telpon = $_SESSION['telpon'];
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/tables/table.php">
+              <a class="nav-link" href="pages/karyawan/karyawan.php">
                 <span class="icon-bg"><i class="mdi mdi-contacts menu-icon"></i></span>
                 <span class="menu-title">Karyawan</span>
               </a>

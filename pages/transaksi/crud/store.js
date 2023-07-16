@@ -82,9 +82,9 @@ function sendButton(){
     console.log(harga_barang, nama_barang, quantitas_barang)
     var tableContent = `
     <tr class="table-row cart-row">
-        <input type="text" value="${id_barang}" name="id_barang[]" id="id-barang" hidden>
         <td class="table-row__td">
             <div class="table-row__info">
+                <input type="text" value="${id_barang}" name="id_barang[]" id="id-barang" hidden>
                 <p class="table-row__name nama__barang" name="nama_barang[]">${nama_barang}</p>
             </div>
             </td>
