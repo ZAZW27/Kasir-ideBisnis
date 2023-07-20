@@ -11,15 +11,17 @@ $cek_exist = mysqli_num_rows($check_list);
 
 $data = mysqli_fetch_array($check_list);
 
-// Mengambil waktu
-date_default_timezone_set('Asia/Ujung_pandang');
-$time = time();
-$date = date("Y-m-d H:i:s", $time);
-
 if ($cek_exist > 0) {
+    // Mengambil waktu
+    date_default_timezone_set('Asia/Ujung_pandang');
+    $time = time();
+    $date = date("Y-m-d H:i:s", $time);
+
+    // mengambil id user
     $id=$data['id_user'];
     $logging = mysqli_query($cons, "INSERT INTO tbl_log (waktu, aktivitas, id_user)
     VALUES ('$date', 'Log in', '$id')");
+    
     if ($logging) {
         if ($data['tipe_user'] == 'admin') {
             $_SESSION['id_user'] = $data['id_user'];

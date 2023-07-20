@@ -52,14 +52,14 @@ $telpon = $_SESSION['telpon'];
             <span class="mdi mdi-menu"></span>
           </button>
           <div class="search-field d-none d-xl-block">
-            <form class="d-flex align-items-center h-100" action="#">
+            <!-- <form class="d-flex align-items-center h-100" action="#">
               <div class="input-group">
                 <div class="input-group-prepend bg-transparent">
                   <i class="input-group-text border-0 mdi mdi-magnify"></i>
                 </div>
                 <input type="text" class="form-control bg-transparent border-0" placeholder="Search products" />
               </div>
-            </form>
+            </form> -->
           </div>
           <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item nav-profile dropdown">
@@ -133,22 +133,28 @@ $telpon = $_SESSION['telpon'];
               </a>
             </li>
             <li class="nav-item">
+              <?php if ($tipe_user == "admin" || $tipe_user == "gudang") {?>
               <a class="nav-link" href="pages/barang/barang.php">
                 <span class="icon-bg"><i class="mdi mdi-table-large menu-icon"></i></span>
                 <span class="menu-title">Barang</span>
               </a>
+              <?php } ?>
             </li>
             <li class="nav-item">
+              <?php if ($tipe_user == "admin") {?>
               <a class="nav-link" href="pages/logging/log.php">
                 <span class="icon-bg"><i class="mdi mdi-format-list-bulleted menu-icon"></i></span>
                 <span class="menu-title">Log</span>
               </a>
+              <?php } ?>
             </li>
             <li class="nav-item">
+              <?php if ($tipe_user == "admin" || $tipe_user == "kasir") { ?>
               <a class="nav-link" href="pages/transaksi/transaksi.php">
                 <span class="icon-bg"><i class="mdi mdi-currency-usd menu-icon"></i></span>
                 <span class="menu-title">Transaksi</span>
               </a>
+              <?php } ?>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="pages/penjualan/penjualan.php">

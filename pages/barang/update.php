@@ -6,6 +6,7 @@ if ($_SESSION['tipe_user']=="") {
 }
 
 // store the sessions
+$id_user=$_SESSION['id_user'];
 $nama = $_SESSION['nama'];
 $profile_user = $_SESSION['profile_user'];
 $tipe_user = $_SESSION['tipe_user'];
@@ -212,6 +213,7 @@ $telpon = $_SESSION['telpon'];
                     ?>
                     <div class="wrapping">
                       <div class="boxing">
+                      <input value="<?=$id_user?>" type="text" class="form-control" id="nama" placeholder="" name="id_user" hidden/>
                         <div class="inputbox">
                             <input value="<?=$u['id_barang']?>" type="text" class="form-control" id="nama" placeholder="" name="id" hidden />
                             <input value="<?=$u['nama_barang']?>" type="text" class="form-control" id="nama" placeholder="" name="nama" required />
@@ -242,7 +244,14 @@ $telpon = $_SESSION['telpon'];
                       </div>
                     </div>
                     <div class="button">
-                        <button type="submit">Send!</button>
+                      <div class="button-container">
+                        <div class="button"> <!-- Updated class name -->
+                          <a href="barang.php" class="cancel">Cancel</a>
+                        </div>
+                        <div class="button"> <!-- Updated class name -->
+                          <button class="confirm" type="submit">Confirm!</button>
+                        </div>
+                      </div>
                     </div>
                   </form>
                 </div>

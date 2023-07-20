@@ -49,11 +49,7 @@ $telpon = $_SESSION['telpon'];
         <?php include '../../partials/_sidebar.php' ?>
         <!-- partial -->
         <div class="main-panel">
-          <?php if ($tipe_user == 'admin' || $tipe_user == 'kasir') {?>
           <div class="form-wrapping" >
-          <?php } else {?>
-          <div class="form-wrapping" hidden>
-          <?php } ?>
             <div class="row row--top-20">
               <div class="col-md-12">
                 <div class="form-container-kasir">
@@ -87,7 +83,7 @@ $telpon = $_SESSION['telpon'];
                               <?php if ($q['jumlah_barang'] <= 0) { ?>
                                 <option value="<?=$q['id_barang']?>" disabled><?=$q['nama_barang'] ?> ====OUT OF STOCKS====</option>
                               <?php }else {?>
-                                <option value="<?=$q['id_barang']?>" ><?=$q['nama_barang'] ?></option>
+                                <option value="<?=$q['id_barang']?>" ><?=$q['nama_barang'], " : ", $q['jumlah_barang']?></option>
                               <?php }} ?>
                             </select>
                         </div>
@@ -103,7 +99,7 @@ $telpon = $_SESSION['telpon'];
                       </div>
                     </div>
                     <div class="button" style="margin-top: 0px;">
-                        <button type="submit" class="send-item" onclick="sendButton();">Send!</button>
+                        <button type="submit" class="send-item confirm" onclick="sendButton();">Add!</button>
                     </div>
                   </div>
                 </div>
@@ -116,9 +112,9 @@ $telpon = $_SESSION['telpon'];
               <div class="row row--top-20">
                 <div class="col-md-12">
                   <div class="table-container">
-                    <form action="crud/aksi-register.php" method="POST">
+                    <form action="crud/aksi-register.php" method="POST" id="transaksiTable">
                       <div class="submit-btn-container">
-                        <button class="submit-btn" type="submit">submit</button>
+                        <button class="submit-btn" type="submit" onclick="window.print()">submit</button>
                       </div>
                       <input type="text" name='id' value="<?=$id?>" hidden>
                       <table class="table">

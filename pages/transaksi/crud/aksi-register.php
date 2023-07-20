@@ -1,14 +1,14 @@
 <?php 
 include '../../../config.php';
 
-$id_barang=$_POST['id_barang'];
 $id_user=$_POST['id'];
-$quantitas=$_POST['quantity_barang'];
 
-$count_id_barang = count($id_barang);
+// $count_id_barang = count($id_barang);
 
-if ($count > 0) {
+if (isset($_POST['id_barang'], $_POST['quantity_barang'])) {
     $no_trans = rand(1000, 10000);
+    $id_barang=$_POST['id_barang'];
+    $quantitas=$_POST['quantity_barang'];
 
     while (true) {
         $query = mysqli_query($cons, "SELECT COUNT(id_transaksi) AS 'dupe' FROM tbl_transaksi WHERE no_transaksi='$no_trans'");
@@ -46,8 +46,7 @@ if ($count > 0) {
             $update_quantity = mysqli_query($cons, "UPDATE tbl_barang SET jumlah_barang='$hasil_pengurangan_barang' WHERE id_barang='$v'");
             
             if ($update_quantity) {
-                // echo"<script>alert('BERHASIL: Meregister barang!');window.location='../transaksi.php';</script>";
-                echo $v;
+                echo"<script>alert('BERHASIL: Meregister barang!');window.location='../transaksi.php';</script>";
             }
             else {
                 echo"<script>alert('GAGAL: mengupdate substraksi barang!');window.location='../transaksi.php';</script>";
@@ -60,7 +59,7 @@ if ($count > 0) {
     }    
 }
 else {
-    echo"<script>alert('GAGAL: Tidak dapat menjual barang!');window.location='../transaksi.php';</script>";
+    echo"<script>alert('GAGAL: Tidak ada barang yang dimasuki!');window.location='../transaksi.php';</script>";
 }
 
 

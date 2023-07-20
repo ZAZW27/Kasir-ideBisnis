@@ -278,6 +278,8 @@ footer {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 70px;
+  margin-left: 20px;
   width: 100%;
 }
 
@@ -370,13 +372,23 @@ textarea {
   font-weight: 500;
 }
 /* button */
+.button-container{
+  width: 30vw;
+  background-color: white;
+  display: flex;
+  justify-content:space-evenly;
+}
+
 .button {
   margin-top: -100px;
   display: flex;
-  justify-content: center;
+  justify-content:center;
+  align-content: center;
+  align-items: center;
 }
 
-.button button {
+/* for button confirm */
+.button .confirm {
   background-color: green;
   color: #fff;
   outline: none;
@@ -386,10 +398,34 @@ textarea {
   font-weight: 600;
   transition-duration: 0.5s;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-shadow: 3px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-.button button:hover {
+.button .confirm:hover {
   background-color: #4c9a2a;
+  transform: scale(1.1);
+  z-index: 100;
+  border-radius: 10px;
+}
+
+/* for button cancels */
+.button a {
+  text-decoration: none;
+}
+
+.button .cancel {
+  background-color: rgb(234, 30, 30);
+  color: #fff;
+  padding: 10px 30px 10px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  transition-duration: 0.5s;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-shadow: 3px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.button .cancel:hover {
+  background-color: rgb(232, 78, 78);
   transform: scale(1.1);
   z-index: 100;
   border-radius: 10px;
@@ -575,4 +611,13 @@ textarea {
 
 .add-new-record-btn:hover .new-record-text {
   opacity: 1;
+}
+
+@media print {
+  table{
+    font-size: 12pt;
+  }
+  nav, .form-wrapping, .submit-btn-container{
+    display: none;
+  }
 }

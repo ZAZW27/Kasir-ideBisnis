@@ -47,17 +47,18 @@ function updateCartTotal(){
         total = total + (price * quantity)
     }
     total = Math.round(total * 100) / 100
-    document.getElementsByClassName('cart-total-price')[0].innerText = 'Rp ' + total
+    var formattedNumber = total.toLocaleString().replace(/,/g, '.');
+    document.getElementsByClassName('cart-total-price')[0].innerText = 'Rp ' + formattedNumber
 }
 
 function updateHarga(){
     var id_barang = document.getElementById('select-barang').value
-    var harga_barang = document.getElementById(`${id_barang}-harga`).textContent
-    document.getElementById('selectedPrice').innerText = harga_barang   
+    var harga_barang = document.getElementById(`${id_barang}-harga`).textContents
+    document.getElementById('selectedPrice').innerText = harga_barang
 }
 
 function sendButton(){
-    var levelUser = document.getElementById('level-user').textContent
+    var levelUser = document.getElementById('level-user').textContent//mengambil level user
 
     var id_barang = document.getElementById('select-barang').value
     var harga_barang = document.getElementById(`${id_barang}-harga`).textContent
