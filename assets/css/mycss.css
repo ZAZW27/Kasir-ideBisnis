@@ -613,11 +613,26 @@ textarea {
   opacity: 1;
 }
 
+@page {
+  size: 3in 5in;
+  margin: 5mm; 
+}
+
 @media print {
-  table{
-    font-size: 12pt;
+  .table{
+    transform: scale(0.6) translate(-150px, 0px);
   }
-  nav, .form-wrapping, .submit-btn-container{
+  .table__th {
+    font-size: 1px;
+  }
+  .total-harga {
+    font-size: 2pt;
+  }
+  td, th{
+    font-size: 1px;
+    padding: 5px;
+  }
+  nav, .form-wrapping, .submit-btn-container, footer{
     display: none;
   }
 }
